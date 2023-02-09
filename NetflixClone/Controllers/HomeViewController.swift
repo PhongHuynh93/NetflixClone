@@ -19,10 +19,13 @@ class HomeViewController: UIViewController {
 
   private let sectionTitles: [String] = ["Trending Movies", "Popular", "Trending Tv", "Upcoming Movies", "Top rated"]
 
-  private let homeFeedTable: UITableView = {
-    let table = UITableView(frame: .zero, style: .grouped)
-    table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifider)
-    return table
+  private lazy var homeFeedTable: UITableView = {
+    return UITableView(frame: .zero, style: .grouped).apply { it in
+      it.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifider)
+      it.tableHeaderView = HeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+      it.delegate = self
+      it.dataSource = self
+    }
   }()
 
   private var data: [Int: [Movie]] = [:]
@@ -30,11 +33,6 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.addSubview(homeFeedTable)
-    homeFeedTable.run { it in
-      it.delegate = self
-      it.dataSource = self
-      it.tableHeaderView = HeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
-    }
     configureNavBar()
     getData()
   }
@@ -44,7 +42,7 @@ class HomeViewController: UIViewController {
   }
 
   private func configureNavBar() {
-    navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "netflixLogo")?.apply(block: { it in
+    navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "netflixLogo")?.letIt(block: { it in
         it.withRenderingMode(.alwaysOriginal)
       }), style: .done, target: self, action: nil)
     navigationItem.rightBarButtonItems = [
@@ -128,7 +126,8 @@ extension HomeViewController: UITableViewDelegate {
 extension HomeViewController: UITableViewDataSource {
 
   func numberOfSections(in tableView: UITableView) -> Int {
-    return sectionTitles.count
+    print("numberOfSectionsxxx \(data.count)")
+    return data.count
   }
 
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -152,6 +151,7 @@ extension HomeViewController: UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifider, for: indexPath) as? CollectionViewTableViewCell else {
+      print("returning xxx cell \(indexPath.row)")
       return UITableViewCell()
     }
     guard let movies = data[indexPath.section] else {

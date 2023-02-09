@@ -63,7 +63,7 @@ class HeaderUIView: UIView {
     layer.addSublayer(gradientLayer)
   }
 
-  func applyConstraint() {
+  private func applyConstraint() {
     let playBtnConstraints = [
       playBtn.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 90),
       playBtn.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),

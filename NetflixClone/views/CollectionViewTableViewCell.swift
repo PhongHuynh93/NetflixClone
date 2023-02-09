@@ -12,20 +12,21 @@ class CollectionViewTableViewCell: UITableViewCell {
   static let identifider = "CollectionViewTableViewCell"
   private var movies: [Movie] = []
 
-  private let collectionView: UICollectionView = {
+  private lazy var collectionView: UICollectionView = {
     return UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().apply { it in
         it.itemSize = CGSize(width: 140, height: 200)
         it.scrollDirection = .horizontal
       }).apply { it in
       it.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.identifider)
+      it.delegate = self
+      it.dataSource = self
+      it.backgroundColor = UIColor.clear
     }
   }()
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     contentView.addSubview(collectionView)
-    collectionView.delegate = self
-    collectionView.dataSource = self
   }
 
   required init?(coder: NSCoder) {

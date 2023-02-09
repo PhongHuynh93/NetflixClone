@@ -15,7 +15,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
   private let posterImageView: UIImageView = {
     return UIImageView().apply { it in
       it.contentMode = .scaleAspectFill
-      it.clipsToBounds = true
     }
   }()
 
