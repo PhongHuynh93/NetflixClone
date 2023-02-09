@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7108EFCB2993F7820011F005 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7108EFCA2993F7820011F005 /* TitleTableViewCell.swift */; };
 		7145D6682990F01700572F3C /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7145D6672990F01700572F3C /* APICaller.swift */; };
 		7145D66D2990F3FF00572F3C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7145D66C2990F3FF00572F3C /* Movie.swift */; };
 		7161415D298E202300B6DDF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7161415C298E202300B6DDF8 /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7108EFCA2993F7820011F005 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		7145D6672990F01700572F3C /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		7145D66C2990F3FF00572F3C /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		71614159298E202300B6DDF8 /* NetflixClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +137,7 @@
 				71614181298E50E200B6DDF8 /* CollectionViewTableViewCell.swift */,
 				71614185298E5E7B00B6DDF8 /* HeaderUIView.swift */,
 				719E24AA29914F2B003AAC6D /* MovieCollectionViewCell.swift */,
+				7108EFCA2993F7820011F005 /* TitleTableViewCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7108EFCB2993F7820011F005 /* TitleTableViewCell.swift in Sources */,
 				71614178298E231700B6DDF8 /* SearchViewController.swift in Sources */,
 				719E24AB29914F2B003AAC6D /* MovieCollectionViewCell.swift in Sources */,
 				71614161298E202300B6DDF8 /* MainTabBarViewController.swift in Sources */,
